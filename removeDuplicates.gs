@@ -19,6 +19,7 @@ function removeDuplicates() {
       if(row[0] == newData[j][0] && row[1] == newData[j][1] && row[3] == newData[j][3] && row[11] > newData[j][11]){
         duplicate = true;
         //update the session time
+        newData[j][2] = row[2]; 
         newData[j][11] = row[11];
       }
     }
