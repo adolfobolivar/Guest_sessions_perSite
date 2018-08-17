@@ -32,7 +32,7 @@ function run_midnight() {
  
  
  //Clear the "List Users" Table, add the headers
-sh_ListOptions2.clearContents();
+ sh_ListOptions2.clearContents();
  var header = ["Time","Device Name","SSID","MAC Address","IP Address","AP Serial","Connection","AP Name","Site"];
  sh_ListOptions2.appendRow(header);
  
