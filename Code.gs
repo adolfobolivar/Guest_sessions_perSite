@@ -27,7 +27,9 @@ var GUEST_SSID = sh_Main.getRange("E14").getValue();
 //Read the portal id using the portal name on E17
 var PORTAL_ID = captive_id(sh_Main.getRange("E17").getValue());
 
+//Read the date of interest using the portal name on E20
 var DATE_REPORT = sh_Main.getRange("E20").getValue();
+
 
 //-------------------------------------------------------------------------------------------------
 //Get a new access token
@@ -53,7 +55,7 @@ function get_access_token() {
 //Communications with Aruba Central via REST APIs
 
 function ListSites() {
-  var url = URL+"/central/v2/sites?access_token="+ACCESS_TOKEN; 
+  var url = URL+"/central/v2/sites?access_token="+ACCESS_TOKEN+"&limit=999"; 
   var response = UrlFetchApp.fetch(url);
   var json = response.getContentText();
   var data = JSON.parse(json);
@@ -78,7 +80,7 @@ function ListSplashPages() {
 
 
 function ListAPs() {
-  var url = URL+"/monitoring/v1/aps?access_token="+ACCESS_TOKEN; 
+  var url = URL+"/monitoring/v1/aps?access_token="+ACCESS_TOKEN+"&limit=999"; 
   var response = UrlFetchApp.fetch(url);
   var json = response.getContentText();
   var data = JSON.parse(json);
@@ -87,7 +89,7 @@ function ListAPs() {
 
 
 function ListUsers() {
-  var url = URL+"/monitoring/v1/clients/wireless?access_token="+ACCESS_TOKEN+"&network="+GUEST_SSID;
+  var url = URL+"/monitoring/v1/clients/wireless?access_token="+ACCESS_TOKEN+"&network="+GUEST_SSID+"&limit=10";
   var response = UrlFetchApp.fetch(url);
   var json = response.getContentText();
   var data = JSON.parse(json);
@@ -96,7 +98,7 @@ function ListUsers() {
 
 
 function ListGuestSessions() {
-  var url = URL+"/guest/v1/portals/"+PORTAL_ID+"/sessions?access_token="+ACCESS_TOKEN+"&ssid_name="+GUEST_SSID+"&offset=0&limit=100&sort=%2Baccount_name";  
+  var url = URL+"/guest/v1/portals/"+PORTAL_ID+"/sessions?access_token="+ACCESS_TOKEN+"&ssid_name="+GUEST_SSID+"&offset=0&sort=%2Baccount_name&limit=100";  
   var response = UrlFetchApp.fetch(url);
   var json = response.getContentText();
   var data = JSON.parse(json);
