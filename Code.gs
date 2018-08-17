@@ -55,7 +55,7 @@ function get_access_token() {
 //Communications with Aruba Central via REST APIs
 
 function ListSites() {
-  var url = URL+"/central/v2/sites?access_token="+ACCESS_TOKEN+"&limit=999"; 
+  var url = URL+"/central/v2/sites?access_token="+ACCESS_TOKEN+"&limit=100"; 
   var response = UrlFetchApp.fetch(url);
   var json = response.getContentText();
   var data = JSON.parse(json);
@@ -80,7 +80,7 @@ function ListSplashPages() {
 
 
 function ListAPs() {
-  var url = URL+"/monitoring/v1/aps?access_token="+ACCESS_TOKEN+"&limit=999"; 
+  var url = URL+"/monitoring/v1/aps?access_token="+ACCESS_TOKEN+"&limit=100"; 
   var response = UrlFetchApp.fetch(url);
   var json = response.getContentText();
   var data = JSON.parse(json);
@@ -89,7 +89,7 @@ function ListAPs() {
 
 
 function ListUsers() {
-  var url = URL+"/monitoring/v1/clients/wireless?access_token="+ACCESS_TOKEN+"&network="+GUEST_SSID+"&limit=10";
+  var url = URL+"/monitoring/v1/clients/wireless?access_token="+ACCESS_TOKEN+"&network="+GUEST_SSID+"&limit=100";
   var response = UrlFetchApp.fetch(url);
   var json = response.getContentText();
   var data = JSON.parse(json);
