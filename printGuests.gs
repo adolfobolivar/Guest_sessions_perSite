@@ -50,13 +50,13 @@ function printGuestSessions(data,keys,Last_Row_Users){
                   }
            }
           //AP Name
-          sh_ListOptions.getRange(lastrow+1+i,j+2+4).setValue(sh_ListAdding.getRange(k+2,6).getValue());
+          sh_ListOptions.getRange(lastrow+1+i,j+2+4).setValue(sh_ListAdding.getRange(k+Last_Row_Users,6).getValue());
           //AP Serial
-          sh_ListOptions.getRange(lastrow+1+i,j+2+5).setValue(sh_ListAdding.getRange(k+2,7).getValue());
+          sh_ListOptions.getRange(lastrow+1+i,j+2+5).setValue(sh_ListAdding.getRange(k+Last_Row_Users,7).getValue());
           //Connection
-          sh_ListOptions.getRange(lastrow+1+i,j+2+3).setValue(sh_ListAdding.getRange(k+2,8).getValue());  
+          sh_ListOptions.getRange(lastrow+1+i,j+2+3).setValue(sh_ListAdding.getRange(k+Last_Row_Users,8).getValue());  
           //Site Label
-          sh_ListOptions.getRange(lastrow+1+i,j+2+6).setValue(sh_ListAdding.getRange(k+2,9).getValue());       
+          sh_ListOptions.getRange(lastrow+1+i,j+2+6).setValue(sh_ListAdding.getRange(k+Last_Row_Users,9).getValue());       
        
      }
      else {
